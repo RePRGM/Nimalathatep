@@ -1,3 +1,6 @@
+# Fork Update
+__Extremely__ minimal update to make this work on Linux.
+
 # Nimalathatep
 Nimalathatep is a Nim shellcode payload generation project that aims to get a stealthy binary into your hands quickly. All methods use well-known API-call sequences.
 
